@@ -1,0 +1,34 @@
+랜덤포레스트
+- 결정트리가 모여 랜덤포레스트를 구성
+- 결정트리의 단점을 보완한다. 
+
+
+모델을 예측하기 위해서 많은 요소를 고려
+여러개의 요소를 기반으로 하나의 결정 트리를 만든다면 트리의 가지가 많아질것이고, 오버피팅의 결과를 야기함.
+
+30개중 5개의 요소를 선택해서 하나의 결정트리를 만들고, 각각의 결정트리는 각각의 예측값을 구하고, 구중 가장 많이 나온 값을 최종예측값으로 정한다. 
+의견을 통합하거나 여러 가지 결과를 합치는 방식을 앙상블.
+
+여러 개의 작은 결정 트리가 예측한 값들 중 가장 많은 값(분류일 경우) 혹은 평균값(회귀)을 최종 예측값으로 정한다. 
+
+
+clf = RandomForestClassifier(n_estimators=13)
+The sub-sample size is controlled with the max_samples parameter if bootstrap=True (default),
+n_estimators=13 => 랜덤포레스트안의 결정트리 개수, 결정트리가 많을수록 더 깔끔한 값이 나옴. 그만큼 메모리와 훈련시간이 증가
+
+max_features : 무작위로 선택할 feature의 개수
+
+cross-val-score : 교차 검증
+parameter
+- estimator : 모델명(예 : 랜덤포레스트, KNN, 결정트리, KVM
+X 
+- train data , 훈련데이터
+Y
+- target data, 예측데이터
+cv
+-  default 5-fold cross validation
+-  계층별 k-겹 교차검증을 사용하고 이를 cv매개 변수에 넣는다. 
+scoring 
+- 보통 정확도 입력.
+
+
