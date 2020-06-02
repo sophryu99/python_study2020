@@ -1,0 +1,13 @@
+Decision Tree
+특정기준에 따라서 데이터를 구분하는 모델
+
+Root Node-Intermediate Node-Terminal Node로 구성됨
+
+Decision Tree에서 특정기준을 데이터를 가장 잘 구분할 수 있는 질문으로 설정한다. 분류규칙을 정하는 방법은 상위노드와 하위노드 사이의 엔트로피를 가장 낮추는 것이다. 하지만 기준의 의미가 불분명하거나 가지가 너무 많으면 Overfitting된다. 그렇게 되면 기존의 데이터에만 한정되어 다른 새로운 데이터에 대한 학습이 이루어지지 않는다. 
+그렇기에 가지치기(Pruning)이라는 기법을 사용하여 오버피팅을 막는다. 즉, 최대 깊이나 터미널 노드의 최대 개수, 혹은 한 노드가 분할하기 위한 최소 데이터 수를 제한한다. min_sample_split을 제한하여 10으로 설정한다면 한 노드안에 데이터 수가 10개 이하로 간다면 가지를 더 만들지 않는다. 또 max_depth를 통해 4로 설정한다면 깊이를 4 이상으로 만들지 않는다. 
+이제 분류가 끝나 각 노드에 한가지의 클래스만 남는다면 노드에 속한 데이터의 클래스의 비율을 구하여 조건부 확률 분포를 계산한다. 계산할 때 가장 상위의 노드부터 분류 규칙을 차례대로 적용하여 예측함
+
+
+https://bkshin.tistory.com/entry/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-4-%EA%B2%B0%EC%A0%95-%ED%8A%B8%EB%A6%ACDecision-Tree
+
+https://datascienceschool.net/view-notebook/16c28c8c192147bfb3d4059474209e0a/
